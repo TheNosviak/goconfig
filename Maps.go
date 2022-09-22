@@ -1,0 +1,5 @@
+package goconfig
+
+/*
+	Coming soon
+*/
