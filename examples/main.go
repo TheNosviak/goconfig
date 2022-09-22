@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"goconfig"
-	"reflect"
 )
 
 func main() {
@@ -19,5 +18,14 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(options.Get(reflect.String, "Hello"))
+	type Hello struct {
+		World string `json:"Hello"`
+	}
+
+	var i *Hello = new(Hello)
+	if err := options.MarshalFromPath(i, "test"); err != nil {
+		panic(err)
+	}
+
+	fmt.Println(i)
 }
